@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <hr>
+  <h1 class="text-center">Order Complete</h1>
+  <h4 class="text-center">Thank you!</h4>
+  <center>❤️</center>
+
+  <p class="text-center"><i>This link will remain valid for 24 hours.</i></p>
+
+  <p class="text-center"><a href="/download/{{ invoice_id }}">Download</a></p>
+</div>
+{% endblock %}

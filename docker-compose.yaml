@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  app:
+    build: .
+    working_dir: /app/
+    command: ./docker-compose-startup.sh
+    environment:
+      - TOKEN=${TOKEN}  # pass systems env variable to our container
+      - ENABLE_TOR=${ENABLE_TOR}
+    volumes:
+      - .:/app/
+    ports:
+      - "8080:8080"

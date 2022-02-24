@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container ">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+{% for item in items %}
+<div class="col mb-5">
+  <div class="card h-100">
+
+      <!-- product image-->
+      <center>
+      <br>
+      <img width=75% src="/static/images/{{ item.image }}" data-bs-toggle="modal" data-bs-target="#Modal{{ loop.index }}" data-bs-target="#staticBackdrop" />
+      </center>
+
+      <!-- product details-->
+      <div class="card-body">
+          <div class="text-center">
+              <!-- product name-->
+              <h5 class="fw-bolder" data-bs-toggle="modal" data-bs-target="#Modal{{ loop.index }}" data-bs-target="#staticBackdrop"><strong>{{ item.name }}</strong></h5>
+              <!-- product description-->
+              <p>{{ item.description }}</p>
+          </div>
+      </div>
+
+      <!-- product actions-->
+      <div class="card-footer bg-transparent">
+          <div class="text-center">
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#Modal{{ loop.index }}" data-bs-target="#staticBackdrop">
+              {{ "$%.2f"|format(item.price) }}
+            </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+  <!-- popup modal for product -->
+  {% include 'modal.html' %}
+
+{% endfor %}
+
+</div>
+</div>
+</section>
+{% endblock %}

@@ -22,6 +22,8 @@ I'll do my best to keep a demo available at: http://159.203.147.32
 
 ## Startup
 
+Requires [Docker](https://www.docker.com/get-started)
+
 ```
 $ export ENABLE_TOR=true  # optional
 $ export TOKEN="YOUR STRIKE API TOKEN"

@@ -18,7 +18,7 @@ Take back ownership of your market!
 
 ## Demo
 
-I'll do my best to keep a demo available at: http://159.203.147.32
+I'll do my best to keep a demo available at: https://bit.ly/3In25QK
 
 ## Startup
 

@@ -1,6 +1,6 @@
 var myTimeout = null;
 
-function createInvoice(loop_index, description, price) {
+function createInvoice(description, price) {
 
   var http = new XMLHttpRequest();
   var url = '/invoice/';
@@ -14,13 +14,13 @@ function createInvoice(loop_index, description, price) {
     if (this.status === 200 && this.readyState === 4) {
       var res = JSON.parse(http.response);
       console.log(res);
-      createLightningInvoice(loop_index, res['invoice_id']);
+      createLightningInvoice(res['invoice_id']);
     }
   }
 
 }
 
-function createLightningInvoice(loop_index, invoice_id) {
+function createLightningInvoice(invoice_id) {
 
   var http = new XMLHttpRequest();
   var url = '/ln_invoice/';
@@ -36,20 +36,21 @@ function createLightningInvoice(loop_index, invoice_id) {
       console.log(res);
 
       // update button
-      document.getElementById('buy-button' + loop_index).style.display = 'none'
+      document.getElementById('buy-button').style.display = 'none'
 
-      document.querySelector('#Modal' + loop_index + ' .qr-content').style.display = 'block'
-      document.getElementById('invoice_id' + loop_index).innerHTML = 'id: ' + invoice_id;
-      document.getElementById('ln_invoice_qr' + loop_index).src = res['ln_invoice_qr'];
-      document.getElementById('ln_invoice' + loop_index).innerHTML = res['ln_invoice'];
-      checkInvoice(loop_index, invoice_id);
+      document.querySelector('#Modal' + ' .qr-content').style.display = 'block'
+      document.getElementById('invoice_id').innerHTML = 'id: ' + invoice_id;
+      document.getElementById('ln_invoice_qr').src = res['ln_invoice_qr'];
+      document.getElementById('ln_invoice').innerHTML = res['ln_invoice'];
+      document.getElementById('ln_timer').innerHTML = res['expiration_in_sec'];
+      checkInvoice(invoice_id);
 
     }
   }
 
 }
 
-function getInvoice(loop_index, invoice_id) {
+function getInvoice(invoice_id) {
 
   var http = new XMLHttpRequest();
   var url = '/invoice/' + invoice_id;
@@ -71,29 +72,29 @@ function getInvoice(loop_index, invoice_id) {
 
 }
 
-function checkInvoice(loop_index, invoice_id) {
+function checkInvoice(invoice_id) {
 
-  getInvoice(loop_index, invoice_id);
+  getInvoice(invoice_id);
   myTimeout = setTimeout(function(){
-    checkInvoice(loop_index, invoice_id);
+    checkInvoice(invoice_id);
   }, 5000);
 
 }
 
 
 
-function closeModal(loop_index) {
-  clearInvoice(loop_index)
+function closeModal() {
+  clearInvoice()
   // update button
-  document.getElementById('buy-button' + loop_index).style.display = 'inline-block'
-  document.querySelector('#Modal' + loop_index + ' .qr-content').style.display = 'none'
+  document.getElementById('buy-button').style.display = 'inline-block'
+  document.querySelector('#Modal' + ' .qr-content').style.display = 'none'
 }
 
-function clearInvoice(loop_index) {
-  document.getElementById('invoice_id' + loop_index).innerHTML = '';
-  document.getElementById('ln_invoice_qr' + loop_index).src = '';
-  document.getElementById('ln_invoice' + loop_index).innerHTML = '';
-  document.getElementById('ln_invoice_text' + loop_index).innerHTML = '';
+function clearInvoice() {
+  document.getElementById('invoice_id').innerHTML = '';
+  document.getElementById('ln_invoice_qr').src = '';
+  document.getElementById('ln_invoice').innerHTML = '';
+  document.getElementById('ln_timer').innerHTML = '';
 
   clearTimeout(myTimeout);
   myTimeout = null;

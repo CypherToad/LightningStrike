@@ -4,6 +4,7 @@ import sys
 import os
 import time
 import uuid
+from datetime import datetime, timezone
 
 import json
 import requests
@@ -47,7 +48,7 @@ def create_invoice(description, amount):
 
     if dry_run:
         return {
-            'created': '2022-02-23T21:07:08.2131576+00:00',
+            'created': str(datetime.utcnow().replace(tzinfo=timezone.utc)),
             'invoice_id': '000000000-0000-0000-0000-000000000000',
             'cor_id': cor_id,
             'description': description,
@@ -84,7 +85,7 @@ def get_invoice(invoice_id):
 
     if dry_run:
         return {
-            'created': '2022-02-23T21:20:19.431305+00:00',
+            'created': str(datetime.utcnow().replace(tzinfo=timezone.utc)),
             'invoice_id': '000000000-0000-0000-0000-000000000000',
             'cor_id': 'b3c540adfe3b4185b481ae1a467afbeb',
             'description': 'Coffee',

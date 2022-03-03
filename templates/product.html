@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+
+
+<div>
+
+  <!-- product image-->
+  <center>
+  <h1>{{ item.name }}</h1>
+  <hr>
+  <img width=75% src="/static/images/{{ item.image }}" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-target="#staticBackdrop" />
+
+  <!-- product details-->
+  <hr>
+  <pre>{{ item.description }}</pre>
+
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-target="#staticBackdrop">
+    Buy
+  </button>
+
+  </center>
+
+</div>
+
+  <!-- popup modal for product -->
+  {% include 'modal.html' %}
+
+
+</div>
+</div>
+</section>
+{% endblock %}

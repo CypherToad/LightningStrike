@@ -12,32 +12,18 @@
       <!-- product image-->
       <center>
       <br>
-      <img width=75% src="/static/images/{{ item.image }}" data-bs-toggle="modal" data-bs-target="#Modal{{ loop.index }}" data-bs-target="#staticBackdrop" />
+      <a href="/product/{{ item.slug }}"><img width=75% src="/static/images/{{ item.image }}" /></a>
       </center>
 
       <!-- product details-->
       <div class="card-body">
           <div class="text-center">
               <!-- product name-->
-              <h5 class="fw-bolder" data-bs-toggle="modal" data-bs-target="#Modal{{ loop.index }}" data-bs-target="#staticBackdrop"><strong>{{ item.name }}</strong></h5>
-              <!-- product description-->
-              <p>{{ item.description }}</p>
-          </div>
-      </div>
-
-      <!-- product actions-->
-      <div class="card-footer bg-transparent">
-          <div class="text-center">
-            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#Modal{{ loop.index }}" data-bs-target="#staticBackdrop">
-              {{ "$%.2f"|format(item.price) }}
-            </button>
+              <h5 class="fw-bolder"><strong><a href="/product/{{ item.slug }}" style="text-decoration: none;">{{ item.name }}</a></strong></h5>
           </div>
       </div>
   </div>
 </div>
-
-  <!-- popup modal for product -->
-  {% include 'modal.html' %}
 
 {% endfor %}
 

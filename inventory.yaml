@@ -1,35 +1,42 @@
 - name: Pancakes
-  description: More like tasty cakes
+  description: |
+    More like tasty cakes
+    Like very very tasty!
   price: 0.01
   image: pancakes.jpeg
   content: pancakes.jpeg
 
 - name: Coffee
-  description: Wakes you up
+  description: |
+    Wakes you up
   price: 0.05
   image: coffee.jpeg
   content: coffee.jpeg
 
 - name: Cookie
-  description: Something sweet XOXO
+  description: |
+    Something sweet XOXO
   price: 0.25
   image: cookie.jpeg
   content: cookie.jpeg
 
 - name: Croissant
-  description: Buttery perfection
+  description: |
+    Buttery perfection
   price: 0.50
   image: croissant.jpeg
   content: croissant.jpeg
 
 - name: Bacon
-  description: There really is no substitute
+  description: |
+    There really is no substitute
   price: 1.00
   image: bacon.jpeg
   content: bacon.jpeg
 
 - name: Avocado Egg
-  description: Hello Fellow Kids 😂
+  description: |
+    Hello Fellow Kids 😂
   price: 5.00
   image: avocado-egg.jpeg
   content: avocado-egg.jpeg

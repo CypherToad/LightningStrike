@@ -1,30 +1,30 @@
-<div class="modal fade" id="Modal{{ loop.index }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalLabel{{ loop.index }}" aria-hidden="true">
+<div class="modal fade" id="Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title mx-auto" id="ModalLabel{{ loop.index }}">
-          {{ item.name }}
+        <h3 class="modal-title mx-auto" id="ModalLabel">
+          Pay {{ "$%.2f"|format(item.price) }} for {{ item.name }}
         </h3>
       </div>
       <div class="modal-body">
         <center>
 
-          <button id="buy-button{{ loop.index }}" type="button" class="btn btn-outline-warning" onclick="createInvoice('{{ loop.index }}', '{{ item.name }}', '{{ item.price }}');">Pay {{ "$%.2f"|format(item.price) }} with lightning ⚡</button>
+          <button id="buy-button" type="button" class="btn btn-primary" onclick="createInvoice('', '{{ item.name }}', '{{ item.price }}');">Create Lightning Invoice ⚡</button>
 
           <div class="qr-content" style="display: none;">
-            <p id=invoice_id{{ loop.index }}></p>
+            <p id=invoice_id></p>
             <hr>
-            <img width=75% id=ln_invoice_qr{{ loop.index }} src="" />
-            <code id=ln_invoice{{ loop.index }}></code>
+            <img width=75% id=ln_invoice_qr src="" />
+            <code id=ln_invoice></code>
             <hr>
-            <p id=invoice_id{{ loop.index }}></p>
-            <p id=ln_invoice_text{{ loop.index }}></p>
+            <p id=invoice_id></p>
+            <p id=ln_invoice_text></p>
           </div>
 
         </center>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-bs-dismiss="modal" onclick="closeModal({{ loop.index }});">Close</button>
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal" onclick="closeModal();">Close</button>
       </div>
     </div>
   </div>

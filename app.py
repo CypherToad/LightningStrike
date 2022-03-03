@@ -5,11 +5,31 @@ from dateutil import parser
 import yaml
 from flask import Flask, render_template, request, abort, send_file
 
+from slugify import slugify
 from utils.csv_tools import create_or_append
 from utils.qr import create_qr
 from utils import strike
 
 app = Flask(__name__)
+
+
+
+def get_items(items_path='inventory.yaml'):
+    """
+    Get items from yaml file
+    """
+
+    items = []
+    if os.path.exists(items_path):
+        with open(items_path) as f:
+            items = yaml.safe_load(f.read())
+
+    # add item slugs
+    for item in items:
+        item['slug'] = slugify(item['name'])
+
+    return items
+
 
 @app.route("/")
 def home():
@@ -18,13 +38,25 @@ def home():
     """
 
     # Get list of items
-    items = []
-    items_path = 'inventory.yaml'
-    if os.path.exists(items_path):
-        with open(items_path) as f:
-            items = yaml.safe_load(f.read())
+    items = get_items()
 
     return render_template('home.html', items=items)
+
+
+@app.route("/product/<slug_name>")
+def product(slug_name):
+    """
+    Render and return templates/product.html
+    """
+
+    # Get list of items
+    items = get_items()
+
+    for item in items:
+        if item['slug'] == slug_name:
+            return render_template('product.html', item=item)
+
+    return abort(404)
 
 
 @app.route("/receipt/<invoice_id>")

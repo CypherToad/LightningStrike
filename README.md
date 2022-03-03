@@ -16,9 +16,6 @@ Take back ownership of your market!
 
 ![4_home.png](/screenshoots/4_thankyou.png)
 
-## Demo
-
-I'll do my best to keep a demo available at: https://bit.ly/3In25QK
 
 ## Startup
 

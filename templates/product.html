@@ -11,6 +11,9 @@
   <!-- product image-->
   <center>
   <h1>{{ item.name }}</h1>
+  {% for tag in item.tags %}
+    <span class="badge bg-primary">{{ tag }}</span>
+  {% endfor %}
   <hr>
   <img width=75% src="/static/images/{{ item.image }}" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-target="#staticBackdrop" />
 
@@ -19,7 +22,7 @@
   <pre>{{ item.description }}</pre>
 
   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-target="#staticBackdrop">
-    Buy
+    Buy - {{ "$%.2f"|format(item.price) }}
   </button>
 
   </center>

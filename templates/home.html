@@ -20,6 +20,9 @@
           <div class="text-center">
               <!-- product name-->
               <h5 class="fw-bolder"><strong><a href="/product/{{ item.slug }}" style="text-decoration: none;">{{ item.name }}</a></strong></h5>
+              {% for tag in item.tags %}
+                <a href="/product/{{ item.slug }}"><span class="badge bg-primary">{{ tag }}</span></a>
+              {% endfor %}
           </div>
       </div>
   </div>

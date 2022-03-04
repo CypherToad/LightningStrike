@@ -1,10 +1,10 @@
 .content {
-    min-height: calc(50vh - 25px);
+    min-height: calc(80vh - 25px);
 }
 
-.footer {
-    height: 25px;
-}
+body {
+    padding-top: 80px;
+  }
 
 code {
   padding: 25px;

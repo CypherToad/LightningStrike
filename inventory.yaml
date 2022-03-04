@@ -1,7 +1,12 @@
 - name: Pancakes
+  tags:
+    - Breakfast
+    - Yummy
+    - Tasty
   description: |
-    More like tasty cakes
-    Like very very tasty!
+    More like tasty cakes, like very very tasty!
+
+    We start with fresh ingredients, all locally sourced...
   price: 0.01
   image: pancakes.jpeg
   content: pancakes.jpeg
@@ -35,6 +40,8 @@
   content: bacon.jpeg
 
 - name: Avocado Egg
+  tags:
+    - Trending
   description: |
     Hello Fellow Kids 😂
   price: 5.00

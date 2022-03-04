@@ -10,9 +10,9 @@ Take back ownership of your market!
 
 ![1_home.png](/screenshoots/1_home.png)
 
-![2_home.png](/screenshoots/2_pay_with_lightning.png)
+![2_home.png](/screenshoots/2_product.png)
 
-![3_home.png](/screenshoots/3_wait_for_payment.png)
+![3_home.png](/screenshoots/3_pay_with_lightning.png)
 
 ![4_home.png](/screenshoots/4_thankyou.png)
 
@@ -54,8 +54,12 @@ Our inventory file contains a **key** called `images` for each product:
 *inventory.yaml*
 ```
 - name: Pancakes
-  description: More like tasty cakes
-  price: 0.05
+  tags:
+    - Tasty
+  description: |
+    More like tasty cakes, like very very tasty!
+    ...
+  price: 0.01
   image: pancakes.jpeg
   content: pancakes.jpeg
 ```

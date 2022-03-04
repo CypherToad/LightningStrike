@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
 
 
-<div>
+<div class="row">
 
   <!-- product image-->
   <center>
@@ -14,14 +14,16 @@
   {% for tag in item.tags %}
     <span class="badge bg-primary">{{ tag }}</span>
   {% endfor %}
-  <hr>
-  <img width=75% src="/static/images/{{ item.image }}" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-target="#staticBackdrop" />
 
-  <!-- product details-->
   <hr>
-  <pre>{{ item.description }}</pre>
 
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-target="#staticBackdrop">
+  <div class="clearfix">
+    <img class="img-fluid col-md-6 float-md-end mb-3 ms-md-3" src="/static/images/{{ item.image }}" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-target="#staticBackdrop" />
+        <p>{{ item.description }}</p>
+  </div>
+
+  <hr>
+  <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-target="#staticBackdrop">
     Buy - {{ "$%.2f"|format(item.price) }}
   </button>
 

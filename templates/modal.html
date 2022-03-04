@@ -9,7 +9,7 @@
       <div class="modal-body">
         <center>
 
-          <button id="buy-button" type="button" class="btn btn-primary" onclick="createInvoice('', '{{ item.name }}', '{{ item.price }}');">Create Lightning Invoice ⚡</button>
+          <button id="buy-button" type="button" class="btn btn-primary" onclick="createInvoice('{{ item.name }}', '{{ item.price }}');">Create Lightning Invoice ⚡</button>
 
           <div class="qr-content" style="display: none;">
             <p id=invoice_id></p>

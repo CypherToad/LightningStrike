@@ -66,12 +66,7 @@ def receipt(invoice_id):
     """
 
     # Get list of items
-    # TODO add func
-    items = []
-    items_path = 'inventory.yaml'
-    if os.path.exists(items_path):
-        with open(items_path) as f:
-            items = yaml.safe_load(f.read())
+    items = get_items()
 
     invoice = strike.get_invoice(invoice_id)
 
@@ -102,12 +97,7 @@ def download(invoice_id):
     """
 
     # Get list of items
-    # TODO add func
-    items = []
-    items_path = 'inventory.yaml'
-    if os.path.exists(items_path):
-        with open(items_path) as f:
-            items = yaml.safe_load(f.read())
+    items = get_items()
 
     invoice = strike.get_invoice(invoice_id)
 
